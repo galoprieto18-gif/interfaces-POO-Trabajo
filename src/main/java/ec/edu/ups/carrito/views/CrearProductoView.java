@@ -1,10 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package ec.edu.ups.carrito.views;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -33,6 +31,10 @@ public class CrearProductoView extends javax.swing.JInternalFrame {
 
     public void setBntCancelar(JButton bntCancelar) {
         this.bntCancelar = bntCancelar;
+    
+    }
+    public void mostrarInformacion(String mensaje){
+        JOptionPane.showMessageDialog(this,mensaje);
     }
 
     public JTextField getTxtCodigo() {
@@ -82,6 +84,7 @@ public class CrearProductoView extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Crear Producto");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Producto"));
 
@@ -169,6 +172,8 @@ public class CrearProductoView extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        jPanel1.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

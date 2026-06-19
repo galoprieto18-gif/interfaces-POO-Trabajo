@@ -1,15 +1,19 @@
+
 package ec.edu.ups.carrito.views;
 
 import ec.edu.ups.carrito.controllers.ProductoController;
+import ec.edu.ups.carrito.dao.ProductoDAO;
+import ec.edu.ups.carrito.dao.ProductoDAOMemoria;
 
   
 
     public class PrincipalView extends javax.swing.JFrame {
-         private CrearProductoView crearProductoView;
+        private CrearProductoView crearProductoView;
         private BuscarProductoView buscarProductoView;
         private EliminarProductoView eliminarProductoView;
         private ActualizarProductoView actualizarProductoView;
         private ProductoController productoController;
+        private ProductoDAO productoDAO;
         
         public PrincipalView() {
             initComponents();
@@ -17,6 +21,7 @@ import ec.edu.ups.carrito.controllers.ProductoController;
         buscarProductoView = new BuscarProductoView();
         eliminarProductoView =new  EliminarProductoView();
         actualizarProductoView = new ActualizarProductoView();
+        productoDAO = new ProductoDAOMemoria();
         
         
         productoController = new ProductoController(
@@ -24,10 +29,9 @@ import ec.edu.ups.carrito.controllers.ProductoController;
                 buscarProductoView,
                 eliminarProductoView,
                 actualizarProductoView,
-                productoController
-        );
-
-    }
+                productoDAO);
+        }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -104,15 +108,16 @@ import ec.edu.ups.carrito.controllers.ProductoController;
     }// </editor-fold>//GEN-END:initComponents
 
     private void lbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbActualizarActionPerformed
-        if (actualizarProductoView == null || !actualizarProductoView.isVisible()) {
-           
+        if (!actualizarProductoView.isVisible()) {
+            desktopPane.remove(actualizarProductoView);
             actualizarProductoView.setVisible(true);
             desktopPane.add(actualizarProductoView);
         }
     }//GEN-LAST:event_lbActualizarActionPerformed
 
     private void lbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbCrearActionPerformed
-        if (crearProductoView == null || !crearProductoView.isVisible()) {
+        if (!crearProductoView.isVisible()){
+            desktopPane.remove(crearProductoView);
             crearProductoView.setVisible(true);
             desktopPane.add(crearProductoView);
         }
@@ -127,16 +132,17 @@ import ec.edu.ups.carrito.controllers.ProductoController;
     }//GEN-LAST:event_ProductosMenuActionPerformed
 
     private void lbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbBuscarActionPerformed
-        if (buscarProductoView == null || !buscarProductoView.isVisible()) {
-            
+
+            if(!buscarProductoView.isVisible()){
+            desktopPane.remove(buscarProductoView);
             buscarProductoView.setVisible(true);
             desktopPane.add(buscarProductoView);
         }
     }//GEN-LAST:event_lbBuscarActionPerformed
 
     private void lbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbEliminarActionPerformed
-        if (eliminarProductoView == null || !eliminarProductoView.isVisible()) {
-            
+        if (!eliminarProductoView.isVisible())  {
+            desktopPane.remove(eliminarProductoView);
             eliminarProductoView.setVisible(true);
             desktopPane.add(eliminarProductoView);
         }

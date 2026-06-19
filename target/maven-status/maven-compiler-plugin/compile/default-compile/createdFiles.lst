@@ -2,6 +2,7 @@ ec\edu\ups\carrito\controllers\ProductoController.class
 ec\edu\ups\carrito\controllers\ProductoController$4.class
 ec\edu\ups\carrito\views\EliminarProductoView.class
 ec\edu\ups\carrito\views\PrincipalView$1.class
+ec\edu\ups\carrito\dao\ProductoDAOMemoria.class
 ec\edu\ups\carrito\models\ItemCarrito.class
 ec\edu\ups\carrito\views\PrincipalView.class
 ec\edu\ups\carrito\controllers\ProductoController$3.class
@@ -9,6 +10,7 @@ ec\edu\ups\carrito\models\Carrito.class
 ec\edu\ups\carrito\views\BuscarProductoView.class
 ec\edu\ups\carrito\views\CrearProductoView.class
 ec\edu\ups\carrito\controllers\ProductoController$2.class
+ec\edu\ups\carrito\dao\ProductoDAO.class
 ec\edu\ups\carrito\views\ActualizarProductoView.class
 ec\edu\ups\carrito\models\Producto.class
 ec\edu\ups\carrito\controllers\ProductoController$1.class

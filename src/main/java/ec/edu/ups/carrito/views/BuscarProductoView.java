@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package ec.edu.ups.carrito.views;
 
-import ec.edu.ups.carrito.controllers.ProductoController;
+import ec.edu.ups.carrito.models.Producto;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
@@ -14,10 +10,11 @@ import javax.swing.JTextField;
  * @author ASUS_USER
  */
 public class BuscarProductoView extends javax.swing.JInternalFrame {
-    private ProductoController productoControllerView;
+    
+    
     public BuscarProductoView() {
         initComponents();  
-        this.productoControllerView = productoControllerView;
+        
     }
 
     public JButton getBtnAceptarBs() {
@@ -35,7 +32,6 @@ public class BuscarProductoView extends javax.swing.JInternalFrame {
     public void setBtnCancelarBs(JButton btnCancelarBs) {
         this.btnCancelarBs = btnCancelarBs;
     }
-
     public JTextField getLbCodigoBs() {
         return lbCodigoBs;
     }
@@ -43,7 +39,28 @@ public class BuscarProductoView extends javax.swing.JInternalFrame {
     public void setLbCodigoBs(JTextField lbCodigoBs) {
         this.lbCodigoBs = lbCodigoBs;
     }
+
+    public JTextField getTxtMostrarNombre() {
+        return TxtMostrarNombre;
+    }
+
+    public void setTxtMostrarNombreBuscar(JTextField TxtMostrarNombre) {
+        this.TxtMostrarNombre = TxtMostrarNombre;
+    }
+
+    public JTextField getTxtMostrarPrecio() {
+        return TxtMostrarPrecio;
+    }
+
+    public void setTxtMostrarPrecio(JTextField TxtMostrarPrecio) {
+        this.TxtMostrarPrecio = TxtMostrarPrecio;
+    }
     
+    public void mostrarProducto(Producto producto){
+        TxtMostrarNombre.setText(producto.getNombre());
+        TxtMostrarPrecio.setText(String.valueOf(producto.getPrecio()));
+       
+    }
     
     
 
@@ -60,13 +77,18 @@ public class BuscarProductoView extends javax.swing.JInternalFrame {
         lbCodigoBs = new javax.swing.JTextField();
         btnAceptarBs = new javax.swing.JButton();
         btnCancelarBs = new javax.swing.JButton();
+        TxtMostrarNombre = new javax.swing.JTextField();
+        txtCodigo1 = new javax.swing.JLabel();
+        TxtMostrarPrecio = new javax.swing.JTextField();
+        txtCodigo2 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Buscar Producto");
 
-        txtCodigo.setText("Ingrese codigo:");
+        txtCodigo.setText("Ingrese codigo :");
 
         lbCodigoBs.addActionListener(this::lbCodigoBsActionPerformed);
 
@@ -76,39 +98,65 @@ public class BuscarProductoView extends javax.swing.JInternalFrame {
         btnCancelarBs.setText("Cancelar");
         btnCancelarBs.addActionListener(this::btnCancelarBsActionPerformed);
 
+        TxtMostrarNombre.addActionListener(this::TxtMostrarNombreActionPerformed);
+
+        txtCodigo1.setText("Ingrese precio a buscar :");
+
+        TxtMostrarPrecio.addActionListener(this::TxtMostrarPrecioActionPerformed);
+
+        txtCodigo2.setText("Ingrese nombre :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbCodigoBs, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
+                        .addGap(106, 106, 106)
                         .addComponent(btnAceptarBs)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCancelarBs)))
-                .addContainerGap(82, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCancelarBs))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TxtMostrarPrecio))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtCodigo2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(55, 55, 55)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbCodigoBs, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtMostrarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbCodigoBs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCodigo))
-                .addGap(38, 38, 38)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelarBs)
-                    .addComponent(btnAceptarBs))
-                .addContainerGap(174, Short.MAX_VALUE))
+                    .addComponent(txtCodigo)
+                    .addComponent(lbCodigoBs, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCodigo2)
+                    .addComponent(TxtMostrarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCodigo1)
+                    .addComponent(TxtMostrarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAceptarBs)
+                    .addComponent(btnCancelarBs))
+                .addGap(78, 78, 78))
         );
-
-        btnAceptarBs.getAccessibleContext().setAccessibleName("Aceptar");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -125,11 +173,28 @@ public class BuscarProductoView extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_btnCancelarBsActionPerformed
 
+    private void TxtMostrarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtMostrarNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtMostrarNombreActionPerformed
+
+    private void TxtMostrarPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtMostrarPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtMostrarPrecioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TxtMostrarNombre;
+    private javax.swing.JTextField TxtMostrarPrecio;
     private javax.swing.JButton btnAceptarBs;
     private javax.swing.JButton btnCancelarBs;
     private javax.swing.JTextField lbCodigoBs;
     private javax.swing.JLabel txtCodigo;
+    private javax.swing.JLabel txtCodigo1;
+    private javax.swing.JLabel txtCodigo2;
     // End of variables declaration//GEN-END:variables
+
+    public void mostrarProductoBuscar(Producto p) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

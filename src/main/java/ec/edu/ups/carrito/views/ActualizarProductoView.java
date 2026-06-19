@@ -1,10 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package ec.edu.ups.carrito.views;
 
+import ec.edu.ups.carrito.models.Producto;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -34,6 +33,10 @@ public class ActualizarProductoView extends javax.swing.JInternalFrame {
 
     public void setjButtonCancelarAC(JButton jButtonCancelarAC) {
         this.jButtonCancelarAC = jButtonCancelarAC;
+    }  
+     public void mostrarInformacion(String mensaje){
+        JOptionPane.showMessageDialog(this,mensaje);
+    
     }
 
     public JTextField getjTextFieldCodigoAC() {
@@ -59,9 +62,7 @@ public class ActualizarProductoView extends javax.swing.JInternalFrame {
     public void setjTextFieldNPrecioAC(JTextField jTextFieldNPrecioAC) {
         this.jTextFieldNPrecioAC = jTextFieldNPrecioAC;
     }
-    
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
