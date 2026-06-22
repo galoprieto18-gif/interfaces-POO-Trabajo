@@ -38,27 +38,42 @@ public class CrearProductoView extends javax.swing.JInternalFrame {
     }
 
     public JTextField getTxtCodigo() {
-        return txtCodigo;
+        return txtCrearCodigo;
     }
 
     public void setTxtCodigo(JTextField txtCodigo) {
-        this.txtCodigo = txtCodigo;
+        this.txtCrearCodigo = txtCodigo;
     }
 
-    public JTextField getTxtNombre() {
-        return txtNombre;
+    public JTextField getTxtCrearCodigo() {
+        return txtCrearCodigo;
     }
 
-    public void setTxtNombre(JTextField txtNombre) {
-        this.txtNombre = txtNombre;
+    public void setTxtCrearCodigo(JTextField txtCrearCodigo) {
+        this.txtCrearCodigo = txtCrearCodigo;
     }
 
-    public JTextField getTxtPrecio() {
-        return txtPrecio;
+    public JTextField getTxtCrearNombre() {
+        return txtCrearNombre;
     }
 
-    public void setTxtPrecio(JTextField txtPrecio) {
-        this.txtPrecio = txtPrecio;
+    public void setTxtCrearNombre(JTextField txtCrearNombre) {
+        this.txtCrearNombre = txtCrearNombre;
+    }
+
+    public JTextField getTxtCrearPrecio() {
+        return txtCrearPrecio;
+    }
+
+    public void setTxtCrearPrecio(JTextField txtCrearPrecio) {
+        this.txtCrearPrecio = txtCrearPrecio;
+    }
+
+    
+    
+    public void mostrarProducto(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje);
+        dispose(); 
     }
 
     /**
@@ -72,13 +87,13 @@ public class CrearProductoView extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtPrecio = new javax.swing.JTextField();
+        txtCrearCodigo = new javax.swing.JTextField();
         bntAceptar = new javax.swing.JButton();
         bntCancelar = new javax.swing.JButton();
+        txtCrearNombre = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtCrearPrecio = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -90,17 +105,7 @@ public class CrearProductoView extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Codigo");
 
-        jLabel2.setText("Nombre");
-
-        jLabel3.setText("Precio");
-
-        txtCodigo.setText("0");
-        txtCodigo.addActionListener(this::txtCodigoActionPerformed);
-
-        txtNombre.addActionListener(this::txtNombreActionPerformed);
-
-        txtPrecio.setText("0.00");
-        txtPrecio.addActionListener(this::txtPrecioActionPerformed);
+        txtCrearCodigo.addActionListener(this::txtCrearCodigoActionPerformed);
 
         bntAceptar.setText("Aceptar");
         bntAceptar.addActionListener(this::bntAceptarActionPerformed);
@@ -108,31 +113,36 @@ public class CrearProductoView extends javax.swing.JInternalFrame {
         bntCancelar.setText("Cancelar");
         bntCancelar.addActionListener(this::bntCancelarActionPerformed);
 
+        txtCrearNombre.addActionListener(this::txtCrearNombreActionPerformed);
+
+        jLabel2.setText("Precio:");
+
+        jLabel3.setText("Nombre:");
+
+        txtCrearPrecio.addActionListener(this::txtCrearPrecioActionPerformed);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(102, Short.MAX_VALUE)
+                .addComponent(bntAceptar)
+                .addGap(18, 18, 18)
+                .addComponent(bntCancelar)
+                .addGap(82, 82, 82))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(65, 65, 65)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNombre))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCodigo))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(bntAceptar)
-                                .addGap(18, 18, 18)
-                                .addComponent(bntCancelar))
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 38, Short.MAX_VALUE))
+                    .addComponent(txtCrearNombre)
+                    .addComponent(txtCrearCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                    .addComponent(txtCrearPrecio))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,20 +150,20 @@ public class CrearProductoView extends javax.swing.JInternalFrame {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(txtCrearCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCrearNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                    .addComponent(txtCrearPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bntAceptar)
-                    .addComponent(bntCancelar))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addComponent(bntCancelar)
+                    .addComponent(bntAceptar))
+                .addGap(46, 46, 46))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,17 +188,9 @@ public class CrearProductoView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+    private void txtCrearCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCrearCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoActionPerformed
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPrecioActionPerformed
+    }//GEN-LAST:event_txtCrearCodigoActionPerformed
 
     private void bntAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAceptarActionPerformed
         // TODO add your handling code here:
@@ -198,6 +200,14 @@ public class CrearProductoView extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_bntCancelarActionPerformed
 
+    private void txtCrearNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCrearNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCrearNombreActionPerformed
+
+    private void txtCrearPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCrearPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCrearPrecioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntAceptar;
@@ -206,9 +216,17 @@ public class CrearProductoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtCrearCodigo;
+    private javax.swing.JTextField txtCrearNombre;
+    private javax.swing.JTextField txtCrearPrecio;
     // End of variables declaration//GEN-END:variables
+
+    public Object getTxtNombre() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public Object getTxtPrecio() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

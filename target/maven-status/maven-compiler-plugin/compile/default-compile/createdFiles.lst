@@ -8,6 +8,7 @@ ec\edu\ups\carrito\views\PrincipalView.class
 ec\edu\ups\carrito\controllers\ProductoController$3.class
 ec\edu\ups\carrito\models\Carrito.class
 ec\edu\ups\carrito\views\BuscarProductoView.class
+ec\edu\ups\carrito\views\ListarProductoView.class
 ec\edu\ups\carrito\views\CrearProductoView.class
 ec\edu\ups\carrito\controllers\ProductoController$2.class
 ec\edu\ups\carrito\dao\ProductoDAO.class

@@ -14,6 +14,7 @@ import ec.edu.ups.carrito.dao.ProductoDAOMemoria;
         private ActualizarProductoView actualizarProductoView;
         private ProductoController productoController;
         private ProductoDAO productoDAO;
+        private ListarProductoView listarProductoView ;
         
         public PrincipalView() {
             initComponents();
@@ -22,6 +23,7 @@ import ec.edu.ups.carrito.dao.ProductoDAOMemoria;
         eliminarProductoView =new  EliminarProductoView();
         actualizarProductoView = new ActualizarProductoView();
         productoDAO = new ProductoDAOMemoria();
+        listarProductoView = new ListarProductoView();
         
         
         productoController = new ProductoController(
@@ -29,7 +31,8 @@ import ec.edu.ups.carrito.dao.ProductoDAOMemoria;
                 buscarProductoView,
                 eliminarProductoView,
                 actualizarProductoView,
-                productoDAO);
+                productoDAO,
+                listarProductoView);
         }
     
 
@@ -38,17 +41,21 @@ import ec.edu.ups.carrito.dao.ProductoDAOMemoria;
     private void initComponents() {
 
         desktopPane = new javax.swing.JDesktopPane();
+        jTextField1 = new javax.swing.JTextField();
         menuBar = new javax.swing.JMenuBar();
         ProductosMenu = new javax.swing.JMenu();
         lbCrear = new javax.swing.JMenuItem();
         lbBuscar = new javax.swing.JMenuItem();
         lbEliminar = new javax.swing.JMenuItem();
         lbActualizar = new javax.swing.JMenuItem();
+        lbListar = new javax.swing.JMenuItem();
         agregarProductoCarrito = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTextField1.setText("jTextField1");
 
         ProductosMenu.setMnemonic('f');
         ProductosMenu.setText("Productos ");
@@ -73,6 +80,11 @@ import ec.edu.ups.carrito.dao.ProductoDAOMemoria;
         lbActualizar.setText("Actualizar ");
         lbActualizar.addActionListener(this::lbActualizarActionPerformed);
         ProductosMenu.add(lbActualizar);
+
+        lbListar.setMnemonic('x');
+        lbListar.setText("Listar");
+        lbListar.addActionListener(this::lbListarActionPerformed);
+        ProductosMenu.add(lbListar);
 
         menuBar.add(ProductosMenu);
 
@@ -108,7 +120,7 @@ import ec.edu.ups.carrito.dao.ProductoDAOMemoria;
     }// </editor-fold>//GEN-END:initComponents
 
     private void lbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbActualizarActionPerformed
-        if (!actualizarProductoView.isVisible()) {
+        if (!listarProductoView.isVisible()) {
             desktopPane.remove(actualizarProductoView);
             actualizarProductoView.setVisible(true);
             desktopPane.add(actualizarProductoView);
@@ -147,6 +159,14 @@ import ec.edu.ups.carrito.dao.ProductoDAOMemoria;
             desktopPane.add(eliminarProductoView);
         }
     }//GEN-LAST:event_lbEliminarActionPerformed
+
+    private void lbListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbListarActionPerformed
+        if(!listarProductoView.isVisible()){
+            desktopPane.remove(listarProductoView);
+            desktopPane.add(listarProductoView);
+            listarProductoView.setVisible(true);
+        }
+    }//GEN-LAST:event_lbListarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,10 +209,12 @@ import ec.edu.ups.carrito.dao.ProductoDAOMemoria;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JDesktopPane desktopPane;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JMenuItem lbActualizar;
     private javax.swing.JMenuItem lbBuscar;
     private javax.swing.JMenuItem lbCrear;
     private javax.swing.JMenuItem lbEliminar;
+    private javax.swing.JMenuItem lbListar;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
 }

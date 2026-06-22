@@ -9,9 +9,11 @@ import java.util.List;
  *
  * @author ASUS_USER
  */
-public class ProductoDAOMemoria implements ProductoDAO{
-   private List<Producto> lista;
+public  class ProductoDAOMemoria implements ProductoDAO{
    
+    private List<Producto> lista;
+   
+    
    public ProductoDAOMemoria(){
        lista = new ArrayList<>();
    }
@@ -49,6 +51,17 @@ public class ProductoDAOMemoria implements ProductoDAO{
         Producto productoEncontrado = buscar (codigo);
         if(productoEncontrado !=null){
         lista.remove(productoEncontrado);
+   
+        }
     }
+
+    @Override
+    public List<Producto> listar() {
+        Producto productoEncontrado = null;
+        return null;
+        
+       
+    }
+
 }
-}
+   
